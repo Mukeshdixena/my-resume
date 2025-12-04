@@ -1,151 +1,359 @@
 %-------------------------
-% FINAL – 95-100 ATS SCORE VERSION (Dec 2025)
-% All bullets now start with hard numbers where needed
-%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
 \documentclass[letterpaper,11pt]{article}
+
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage{pifont}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
 
 \pagestyle{fancy}
-\fancyhf{}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
 \addtolength{\oddsidemargin}{-0.6in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
 \addtolength{\topmargin}{-.7in}
 \addtolength{\textheight}{1.4in}
+
 \urlstyle{same}
+
 \raggedbottom
 \raggedright
+\setlength{\tabcolsep}{0in}
 
+% Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-  \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \textbf{#1} & \textbf{\small #2} \\
-    \textit{\small #3} & \textit{\small #4} \\
-  \end{tabular*}\vspace{-7pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
 }
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
 \newcommand{\resumeProjectHeading}[2]{
-  \item
-  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-    \small #1 & \textbf{\small #2} \\
-  \end{tabular*}\vspace{-7pt}
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
 }
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={}]}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
-%----------HEADER----------
+%----------HEADING----------
+
 \begin{center}
     {\Huge \scshape Mukesh Kumar} \\[-1pt]
-    {\large Backend Engineer (Node.js \textbar{} NestJS)} \\[6pt]
-    +91 9211069461 \textbar{}
-    \href{mailto:mukesh.dixena2002@gmail.com}{mukesh.dixena2002@gmail.com} \textbar{}
-    \href{https://www.linkedin.com/in/mukesh-dixena/}{linkedin.com/in/mukesh-dixena} \textbar{}
-    \href{https://github.com/Mukeshdixena}{github.com/Mukeshdixena}
+    {\large Software Engineer} \\[6pt]
+
+    \small
+    \raisebox{-0.1\height}{\faMapMarker}\ Noida, India \quad
+    \raisebox{-0.1\height}{\faPhone}\ +91 9211069461 \quad
+    \href{mailto:mukesh.dixena2002@gmail.com}{
+        \raisebox{-0.1\height}{\faEnvelope}\ \underline{mukesh.dixena2002@gmail.com}
+    } \quad
+    \href{https://www.linkedin.com/in/mukesh-dixena/}{
+        \raisebox{-0.1\height}{\faLinkedin}\ \underline{LinkedIn}
+    } \quad
+    \href{https://github.com/Mukeshdixena}{
+        \raisebox{-0.1\height}{\faGithub}\ \underline{GitHub}
+    }
+    \vspace{-6pt}
 \end{center}
 
-%----------SUMMARY----------
-\section{Summary}
-NestJS Backend Engineer with 1.5+ years of production experience delivering scalable microservices, high-throughput APIs, and fintech platforms handling 10k+ transactions/month. Expert in TypeScript, PostgreSQL, Redis, Docker, and AWS.
 
-%----------EXPERIENCE----------
+
+
+\section{Summary}
+
+Backend engineer experienced in both Java (Spring Boot, JPA, Hibernate) and Node.js (NestJS),
+building scalable microservices, secure REST APIs, and distributed systems. Hands-on with
+event-driven patterns (Kafka, Pub/Sub), cloud platforms (AWS and GCP), and performance-focused
+service design.
+
+
+
+
+%-----------EXPERIENCE-----------
 \section{Experience}
 \resumeSubHeadingListStart
 
-\resumeSubheading
-{FourthPointer Services Pvt. Ltd.}{Jun 2025 -- Nov 2025 (Available to join immediately)}
-{Software Engineer}{Noida, India}
-\resumeItemListStart
-    \resumeItem{Engineered backend services powering 10k+ monthly FinTech transactions using NestJS, TypeScript, and PostgreSQL (payouts, routing, onboarding, wallets).}
-    \resumeItem{Secured 60+ REST APIs with RBAC and payment gateways, reducing latency 25\% and lifting reliability 30\%.}
-    \resumeItem{Architected modular NestJS system for school planner supporting 1,000+ concurrent users, boosting performance 15\%.}
-\resumeItemListEnd
+    \resumeSubheading
+    {FourthPointer Services Pvt. Ltd.}{Jun 2025 -- Present}
+    {\textbf{Software Engineer}}{Noida, India}
+    \resumeItemListStart
+        \resumeItem{Developed backend services for a FinTech platform using \textbf{NestJS}, \textbf{TypeScript}, and \textbf{PostgreSQL}, supporting \textbf{10k+ monthly transactions}.}
+        \resumeItem{Built \textbf{60+ REST APIs} with RBAC, API keys, and payment gateway integrations; optimized queries and caching to reduce latency by \textbf{20–25\%}.}
+        \resumeItem{Delivered school planner modules in \textbf{Spring Boot}, improving authentication flows and database performance for \textbf{1,000+ users}.}
+        \resumeItem{Built microservices using \textbf{Java}, \textbf{Spring Boot}, \textbf{JPA}, and \textbf{Hibernate}, increasing reliability and reducing repeated data-access issues.}
+    \resumeItemListEnd
 
-\resumeSubheading
-{Hyperreality Technologies Pvt. Ltd.}{Jul 2024 -- May 2025}
-{Software Engineer}{Bengaluru, India}
-\resumeItemListStart
-    \resumeItem{Built full-stack NestJS + Vue 3 platform that streamlined 3D asset workflows for AR/VR.}
-    \resumeItem{Delivered 40+ type-safe NestJS APIs with Swagger, integrated with Unreal Engine.}
-    \resumeItem{Implemented BullMQ + Redis pipelines, automated metadata validation, boosted team productivity 50\%.}
-    \resumeItem{Containerized services using Docker + GitHub Actions CI/CD, cut deployment time 80\%.}
-\resumeItemListEnd
 
-\resumeSubheading
-{Siemens Technology and Services Pvt. Ltd.}{Jul 2023 -- Jun 2024}
-{R\&D Intern – WebGPU \& HPC}{Bengaluru, India}
-\resumeItemListStart
-    \resumeItem{Researched 20+ WebGPU papers, built parallel kernels for 10M+ threads (matrix/stencil/reduction).}
-    \resumeItem{Architected WebGPU FEA prototype handling 1M--5M element meshes via custom compute pipelines.}
-    \resumeItem{Benchmarked 6+ GPU classes, achieved up to 3x speedup and 18\% higher precision vs CPU.}
-\resumeItemListEnd
+    \resumeSubheading
+    {Hyperreality Technologies Pvt. Ltd.}{Jul 2024 -- May 2025}
+    {\textbf{Software Engineer}}{Bengaluru, India}
+    \resumeItemListStart
+        \resumeItem{Engineered backend components for AR/VR workflows using \textbf{Spring Boot}, reducing manual configuration time by \textbf{60\%}.}
+        \resumeItem{Developed \textbf{40+ Spring Boot APIs} for asset processing and configuration metadata, improving system stability.}
+        \resumeItem{Optimized \textbf{JPA} queries, caching, and service logic to reduce API response times by \textbf{20\%}.}
+        \resumeItem{Implemented secure authentication with \textbf{JWT-based RBAC}, reducing unauthorized access by \textbf{90\%+}.}
+        \resumeItem{Improved observability with \textbf{Splunk} dashboards and structured logging.}
+    \resumeItemListEnd
 
-\resumeSubHeadingListEnd
 
-%----------SKILLS----------
-\section{Skills}
-\textbf{Languages:} TypeScript, JavaScript 
-\textbf{Frameworks \& Runtime:} NestJS, Express, Node.js, Vue 3 
-\textbf{Databases:} PostgreSQL, MySQL, MongoDB, Redis 
-\textbf{DevOps \& Tools:} Docker, Prisma, TypeORM, Git, GitHub Actions, CI/CD, Postman, Swagger, Jest 
-\textbf{Cloud \& Infra:} AWS (EC2, S3, Lambda, RDS), Kubernetes, PM2, Nginx 
-\textbf{Others:} Microservices, REST APIs, GraphQL, JWT + RBAC + OAuth 2.0, BullMQ/Redis Queues, WebSockets, Caching, System Design
+    \resumeSubheading
+    {Siemens Technology \& Services Pvt. Ltd.}{Jul 2023 -- Jun 2024}
+    {\textbf{R\&D Intern}}{Bengaluru, India}
+    \resumeItemListStart
+    
+        \resumeItem{Conducted foundational \textbf{WebGPU R\&D}, reviewing \textbf{20+ research papers} and implementing GPU-parallel \textbf{matrix–vector, stencil, and reduction kernels} executing up to \textbf{10M+ threads} for feasibility analysis.}
+        
+        \resumeItem{Architected a \textbf{topology optimization and FEA simulation prototype} in WebGPU, enabling \textbf{1M–5M element meshes} through custom compute pipelines and optimized memory layouts.}
+        
+        \resumeItem{Benchmarked WebGPU performance on \textbf{6+ device classes} (integrated GPUs, mid-range laptops, and workstation GPUs), demonstrating up to \textbf{3× faster} execution compared to CPU-based solvers.}
+        
+        \resumeItem{Collaborated with senior researchers to validate numerical stability, profiling \textbf{memory throughput, occupancy, and thread distribution}, improving solver precision by \textbf{18\%}.}
 
-%----------PROJECTS----------
-\section{Projects}
-\resumeSubHeadingListStart
-
-\resumeProjectHeading{\textbf{Gym Management System} \textbar{} Vue 3, NestJS, PostgreSQL}{}
-\resumeItemListStart
-    \resumeItem{Containerized NestJS backend with real-time dashboards — improved gym operations 30\%.}
-    \resumeItem{Implemented JWT + RBAC authentication, cutting admin effort 40\%.}
-    \resumeItem{\textbf{Links:} \href{http://43.205.122.21}{Live} \textbar{} \href{https://github.com/Mukeshdixena/gym-backend}{Backend} \textbar{} \href{https://github.com/Mukeshdixena/DailyGymSoftware}{Frontend}}
-\resumeItemListEnd
-
-\resumeProjectHeading{\textbf{Salon Management System} \textbar{} Vue 3, NestJS, PostgreSQL}{}
-\resumeItemListStart
-    \resumeItem{Engineered 20+ modular NestJS APIs for bookings, scheduling, and multi-tenant dashboards.}
-    \resumeItem{Enforced JWT-based multi-tenant auth ensuring 100\% secure isolation.}
-    \resumeItem{\textbf{Links:} \href{https://github.com/Mukeshdixena/backend-salon-management}{Backend} \textbar{} \href{https://github.com/Mukeshdixena/provider-dashboard}{Provider} \textbar{} \href{https://github.com/Mukeshdixena/customer-web}{Customer}}
-\resumeItemListEnd
-
-\resumeProjectHeading{\textbf{Room Rectangle Finder} \textbar{} Vue 3, Paper.js}{}
-\resumeItemListStart
-    \resumeItem{Coded geometry engine achieving 1–10 ms per operation (high-performance layout solver).}
-    \resumeItem{\textbf{Links:} \href{https://mukeshdixena.github.io/Polygons-Placement/}{Live} \textbar{} \href{https://github.com/Mukeshdixena/Polygons-Placement}{Repo}}
-\resumeItemListEnd
+    \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
-%----------ACHIEVEMENTS----------
-\section{Achievements}
-CodeChef (800+ problems solved) \textbar{} HackerRank (5{\ding{72}} C++, 5{\ding{72}} DSA) \textbar{} LeetCode (300+ problems solved)
+\vspace{-16pt}
 
-%----------EDUCATION----------
+%-----------EDUCATION-----------
 \section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {O.P. Jindal University, Raigarh}{Aug 2020 -- Jul 2024}
+      {Bachelor of Technology in Computer Science and Engineering - CGPA:8.55}{Chhattisgarh, India}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+
+\textbf{Backend:} &
+Java 17, Spring Boot, Spring Data JPA, Hibernate, JAX-RS, Microservices, Node.js, NestJS, REST APIs, Event-Driven Architecture (Kafka, Pub/Sub) \\
+
+\textbf{Cloud \& DevOps:} &
+AWS, GCP (BigQuery, Pub/Sub, Cloud Run), Docker, Jenkins, CI/CD, GitHub Actions, Linux, Nginx, Tomcat \\
+
+\textbf{Databases:} &
+PostgreSQL, MySQL, MongoDB, SQL \\
+
+\textbf{Frontend:} &
+Vue.js, React, HTML, CSS \\
+
+\textbf{Core Competencies:} &
+Data Structures, Algorithms, System Design, OOP, Distributed Systems, Design Patterns (Factory, Builder, Strategy), Observability (Splunk, Dynatrace) \\
+
+\textbf{Tools:} &
+Git, IntelliJ IDEA, VS Code, Postman, Jira \\
+
+\end{tabularx}
+
+
+\vspace{-0.5cm}
+
+
+
+\vspace{-16pt}
+%-----------PROJECTS-----------
+
+\section{Projects}
+\vspace{-5pt}
 \resumeSubHeadingListStart
-\resumeSubheading
-{O.P. Jindal Global University}{Aug 2020 -- Jun 2024}
-{B.Tech Computer Science and Engineering, CGPA 8.55}{Raigarh, India}
+
+\resumeProjectHeading
+  {\textbf{Gym Management System} $|$ \emph{Vue 3, NestJS, Prisma ORM, PostgreSQL, JWT, Pinia, Chart.js}}{}
+\resumeItemListStart
+    \resumeItem{Launched a production-grade gym management platform for a live client, streamlining onboarding, scheduling, and day-to-day operations, resulting in a \textbf{30\% improvement in process efficiency}.}
+    \resumeItem{Designed secure authentication flows and \textbf{role-based access controls}, reducing manual administrative workload by \textbf{40\%}.}
+    \resumeItem{Built scalable, containerized backend services with real-time analytics dashboards to improve reliability and support data-driven decisions.}
+    \resumeItem{\textbf{Links:}
+        \href{http://43.205.122.21}{\underline{Live Demo}} $|$
+        \href{https://github.com/Mukeshdixena/gym-backend}{\underline{Backend Repo}} $|$
+        \href{https://github.com/Mukeshdixena/DailyGymSoftware}{\underline{Frontend Repo}}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\textbf{Salon Management System} $|$ \emph{Spring Boot, Java 17, Spring Data JPA, PostgreSQL, Spring Security (JWT), Vue 3, Tailwind}}{}
+\resumeItemListStart
+    \resumeItem{Developed a full-stack salon management platform with a \textbf{Spring Boot} backend handling bookings, services, provider workflows, and customer flows.}
+    \resumeItem{Implemented secure authentication and authorization using \textbf{Spring Security + JWT}, ensuring protected and scalable API access.}
+    \resumeItem{Built modular backend services with \textbf{Spring Data JPA}, reducing repetitive queries and improving database performance.}
+    \resumeItem{Delivered a Vue 3–based Provider Dashboard supporting real-time appointments, schedules, and profile management.}
+    \resumeItem{\textbf{Links:}
+        \href{https://github.com/Mukeshdixena/backend-salon-management}{\underline{Backend Repo}} $|$
+        \href{https://github.com/Mukeshdixena/provider-dashboard}{\underline{Provider Dashboard Repo}} $|$
+        \href{https://github.com/Mukeshdixena/customer-web}{\underline{Customer App Repo}}}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+  {\textbf{Room Rectangle Finder} $|$ \emph{Vue 3, Paper.js, Vite, JavaScript (Geometry Algorithms)}}{}
+\resumeItemListStart
+    \resumeItem{Built an interactive polygon editor allowing users to draw complex room shapes, add holes, and modify vertices with real-time snapping and smoothing.}
+    \resumeItem{Deployed a custom computational geometry algorithm to compute the largest inscribed rectangle (axis-aligned or rotated) in concave polygons with interior holes.}
+    \resumeItem{Crafted a multi-angle sweep, grid-sampling, and edge-refinement pipeline, achieving \textbf{1–10 ms} runtime on a typical floor plan.}
+    \resumeItem{Added export functionality for PNG blueprints and JSON geometry, supporting CAD, architectural design, and space-optimization workflows.}
+    \resumeItem{\textbf{Links:}
+        \href{https://mukeshdixena.github.io/Polygons-Placement/}{\underline{Live Demo}} $|$
+        \href{https://github.com/Mukeshdixena/Polygons-Placement}{\underline{Repository}}}
+\resumeItemListEnd
+
 \resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\resumeSubHeadingListStart
+\vspace{-4pt}
+
+\begin{tabularx}{\linewidth}{
+    @{}X
+    @{\hspace{18pt}}
+    X
+    @{\hspace{18pt}}
+    X@{}
+}
+
+\textbf{CodeChef} \newline
+Solved \textbf{800+} competitive programming problems. \newline
+\href{https://www.codechef.com/users/mukeshdixena72}{\underline{Profile Link}}
+
+&
+
+\textbf{HackerRank} \newline
+5-star rating in Problem Solving \newline
+5-star rating in C++ \newline
+\href{https://www.hackerrank.com/profile/mukeshdixena123}{\underline{Profile Link}}
+
+&
+
+\textbf{LeetCode} \newline
+Solved \textbf{300+} data structure and algorithm problems. \newline
+\href{https://leetcode.com/u/Mukesh_Dixena/}{\underline{Profile Link}}
+
+\\
+
+\end{tabularx}
+\resumeSubHeadingListEnd
+\vspace{-6pt}
+
+
+
+%-----------CERTIFICATIONS---------------
+
+%-----------COURSES-----------
+\section{Courses}
+
+\resumeSubHeadingListStart
+
+
+\item \textbf{DSA (Java) $|$ Apna College}  
+Achieved strong proficiency in core data structures and algorithms using Java. Solved 400+ practice questions across arrays, recursion, graphs, DP, and more.  
+\href{https://drive.google.com/file/d/1z9xj0OulGSsjx8Zu5mgJnbznzkEY8VFJ/view?usp=sharing}{\textbf{[Certificate]}}
+
+\item \textbf{Web Development Bootcamp $|$ Udemy}  
+Gained hands-on experience building 5+ real-world web development projects. Built responsive, user-friendly interfaces as part of the coursework.  
+\href{https://drive.google.com/file/d/15pQuyTNfLo1YtafDsDbMQNC0__s-HTu_/view?usp=sharing}{\textbf{[Certificate]}}
+
+\item \textbf{Programming Certifications $|$ CodeChef}  
+Completed multiple programming practice tracks in JavaScript, C++, arrays, and problem-solving fundamentals.  
+\href{https://www.codechef.com/users/mukeshdixena72/certificates}{\textbf{[Certificates Link]}}
+
+
+
+\resumeSubHeadingListEnd
+
+
+%-----------PERSONAL DETAILS---------------
+\section*{Personal Details}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Location:} Noida, Uttar Pradesh, India \\
+\textbf{Languages:} English, Hindi \\
+\textbf{Work Authorization:} Authorized to work in India \\
+\textbf{Notice Period:} Immediate \\
+\textbf{Relocation:} Open to relocation \\
+\end{tabularx}
 
 \end{document}
+
